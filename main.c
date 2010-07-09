@@ -21,8 +21,11 @@ void CPU_Hardware_Init (void);
 
 int main (void)
 {
-// int Level, i;
+ int Level, i;
  unsigned int CurrentTick, lwIPTimersCntr = 0;
+
+	for (i = 0; i < 10; i++) {
+	}
  /////////////////////////////////////// <- Debug Start
 // ETH_Rev ENC_RevID;
  /////////////////////////////////////// <- Debug End
