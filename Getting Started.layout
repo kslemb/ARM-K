@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Release" />
+	<File name="Makefile" open="1" top="1" tabpos="8">
+		<Cursor position="18" topLine="0" />
+	</File>
+	<File name="backlight\backlight.c" open="0" top="0" tabpos="5">
+		<Cursor position="524" topLine="0" />
+	</File>
+	<File name="backlight\backlight.h" open="0" top="0" tabpos="2">
+		<Cursor position="44" topLine="0" />
+	</File>
+	<File name="boot.s" open="0" top="0" tabpos="3">
+		<Cursor position="2890" topLine="40" />
+	</File>
+	<File name="enc28j60\enc28j60.c" open="1" top="0" tabpos="6">
+		<Cursor position="5087" topLine="113" />
+	</File>
+	<File name="enc28j60\enc28j60.h" open="1" top="0" tabpos="7">
+		<Cursor position="7398" topLine="269" />
+	</File>
+	<File name="generic\console.c" open="0" top="0" tabpos="17">
+		<Cursor position="5713" topLine="232" />
+	</File>
+	<File name="generic\console.h" open="0" top="0" tabpos="18">
+		<Cursor position="94" topLine="0" />
+	</File>
+	<File name="i2c\i2c.c" open="0" top="0" tabpos="16">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="linker.ld" open="0" top="0" tabpos="15">
+		<Cursor position="15567" topLine="95" />
+	</File>
+	<File name="lpc214x.h" open="0" top="0" tabpos="4">
+		<Cursor position="28303" topLine="621" />
+	</File>
+	<File name="main.c" open="0" top="0" tabpos="1">
+		<Cursor position="1158" topLine="22" />
+	</File>
+	<File name="main.h" open="0" top="0" tabpos="7">
+		<Cursor position="1320" topLine="4" />
+	</File>
+	<File name="shell\shell.c" open="0" top="0" tabpos="19">
+		<Cursor position="177" topLine="0" />
+	</File>
+	<File name="shell\shell.h" open="0" top="0" tabpos="20">
+		<Cursor position="70" topLine="0" />
+	</File>
+	<File name="spi\spi1.c" open="1" top="0" tabpos="4">
+		<Cursor position="3720" topLine="71" />
+	</File>
+	<File name="spi\spi1.h" open="1" top="0" tabpos="5">
+		<Cursor position="613" topLine="0" />
+	</File>
+	<File name="syscall\device.c" open="1" top="0" tabpos="2">
+		<Cursor position="1123" topLine="50" />
+	</File>
+	<File name="syscall\device.h" open="1" top="0" tabpos="3">
+		<Cursor position="1175" topLine="0" />
+	</File>
+	<File name="syscall\syscall.c" open="1" top="0" tabpos="1">
+		<Cursor position="384" topLine="0" />
+	</File>
+	<File name="timer0\timer0.c" open="0" top="0" tabpos="1">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="timer0\timer0.h" open="0" top="0" tabpos="6">
+		<Cursor position="124" topLine="0" />
+	</File>
+	<File name="uart\uart.c" open="0" top="0" tabpos="12">
+		<Cursor position="6249" topLine="172" />
+	</File>
+	<File name="uart\uart.h" open="0" top="0" tabpos="9">
+		<Cursor position="5525" topLine="95" />
+	</File>
+	<File name="uart\uart0.c" open="0" top="0" tabpos="13">
+		<Cursor position="20" topLine="0" />
+	</File>
+	<File name="vic\isr.c" open="0" top="0" tabpos="21">
+		<Cursor position="354" topLine="0" />
+	</File>
+	<File name="vic\isr.h" open="0" top="0" tabpos="11">
+		<Cursor position="193" topLine="0" />
+	</File>
+	<File name="vic\vic.c" open="0" top="0" tabpos="15">
+		<Cursor position="390" topLine="0" />
+	</File>
+	<File name="vic\vic.h" open="0" top="0" tabpos="0">
+		<Cursor position="291" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>

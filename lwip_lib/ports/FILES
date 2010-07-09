@@ -1,0 +1,3 @@
+lpc_enc28j60/  - The source code for the LPC214x + ENC28J60 port.
+
+See also the FILES file in each subdirectory.

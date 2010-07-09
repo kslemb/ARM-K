@@ -1,0 +1,73 @@
+#include "../main.h"
+#include "backlight.h"
+
+
+static int PWM_PulseWidth_uS = (1000000 / BACKLIGHT_FREQUENCY_HZ);
+static int PWM_DutyCycle = BACKLIGHT_DUTY_CYCLE;
+
+void BackLightInit (void)
+{
+	/* Power ON the PWM */
+	PCONP |= PCPWM0;
+	/* P0.21 set as PWM5 output */
+	PINSEL1 = (PINSEL1 & ~PINSEL1_P021_MASK) | PINSEL1_P021_PWM5;
+	/* Reset PWM Timer Counter */
+	PWM_TCR = PWM_TCR_CR;
+	/* Set PWM Timer Prescaler to '0' - division disabled */
+	PWM_PR = 0;
+	/* Check if PWM cycle rate non zero. If zero set PWM pulse to 10ms */
+	if (PWM_PulseWidth_uS == 0) {
+		PWM_PulseWidth_uS = 10000;
+	}
+	/* PWMMR0 controls the PWM cycle rate. Set cycle rate specifyed in PWM_PulseWidth_uS */
+	PWM_MR0 = ((CPU_CLOCK_HZ / 1000000) * PWM_PulseWidth_uS);
+	/* PWMTC will be reset on PWMMR0 match */
+	PWM_MCR |= PWM_MCR_MR0R;
+	/* Selects single edge controlled mode for PWM5. Enable PWM5 output */
+	PWM_PCR |= PWM_PCR_ENA5;
+	/* Check the curent duty cycle */
+	if ((PWM_DutyCycle) > 100 && (PWM_DutyCycle < 0)) {
+		PWM_DutyCycle = 100;
+	}
+	/* Set the Duty cycle for PWM5 */
+	PWM_MR5 = (PWM_MR0 * PWM_DutyCycle) / 100;
+	/* LE5=1 - writte to the PWM5 Match Register */
+	PWM_LER = PWM_LER_M5L;
+	/* Enable PWM Timer counter. Enable PWM mode operation */
+	PWM_TCR = (PWM_TCR_CE | PWM_TCR_PWME);
+}
+
+int BackLightLewel (int Lewel_percentage)
+{
+	/* If we see the wrong settings return with status -1*/
+	if ((Lewel_percentage > 100) || (Lewel_percentage < 0)) {
+			return PWM_DutyCycle;
+	}
+	/* Set the Duty cycle for PWM5 */
+	PWM_MR5 = (PWM_MR0 * (unsigned int)(PWM_DutyCycle = Lewel_percentage)) / 100;
+	/* LE5=1 - writte to the PWM5 Match Register */
+	PWM_LER = PWM_LER_M5L;
+
+	return PWM_DutyCycle;
+}
+#if 1
+int BackLightFrequency (int BackLightFrequency_Hz)
+{
+	int Temp;
+
+	if ((BackLightFrequency_Hz < 0) || (BackLightFrequency_Hz > CPU_CLOCK_HZ)) {
+		return (1000000 / PWM_PulseWidth_uS);
+ 	}
+	PWM_PulseWidth_uS = 1000000 / BackLightFrequency_Hz;
+	/* Calculate new PWM cycle rate */
+	Temp = ((CPU_CLOCK_HZ / 1000000) * PWM_PulseWidth_uS);
+	/* Update PWM cycle rate */
+	PWM_MR0 = Temp;
+	/* Recalculate duty cycle */
+	PWM_MR5 = (Temp * PWM_DutyCycle) / 100;
+	/* Update MR0 and MR5 match registers */
+	PWM_LER = PWM_LER_M5L | PWM_LER_M0L;
+
+	return (1000000 / PWM_PulseWidth_uS);
+}
+#endif
